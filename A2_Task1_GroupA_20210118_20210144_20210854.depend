@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1667064809 source:d:\fcai\year_2\oop\assignments\assignment_2\a2_task1_groupa_20210118_20210144_20210854\main.cpp
+	<bits/stdc++.h>
+	"BigDecimalInt.h"
+	"BigReal.h"
+
+1667063854 source:d:\fcai\year_2\oop\assignments\assignment_2\a2_task1_groupa_20210118_20210144_20210854\src\bigdecimalint.cpp
+	"BigDecimalInt.h"
+
+1667074602 d:\fcai\year_2\oop\assignments\assignment_2\a2_task1_groupa_20210118_20210144_20210854\include\bigdecimalint.h
+	<iostream>
+	<deque>
+	<regex>
+
+1667064789 source:d:\fcai\year_2\oop\assignments\assignment_2\a2_task1_groupa_20210118_20210144_20210854\src\bigreal.cpp
+	<bits/stdc++.h>
+	"BigReal.h"
+	"BigDecimalInt.h"
+
+1667064734 d:\fcai\year_2\oop\assignments\assignment_2\a2_task1_groupa_20210118_20210144_20210854\include\bigreal.h
+	"BigDecimalInt.h"
+
