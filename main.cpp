@@ -7,11 +7,10 @@ using namespace std;
 
 int main()
 {
-    BigReal r1;
-    BigReal r2("1.1");
-    r1 = r2;
-    cout<<r1.leftNum<<"."<<r1.rightNum<<endl;
-    cout<<r2.leftNum<<"."<<r2.rightNum<<endl;
+    BigReal r1("2.3");
+    BigReal r2("-3.5");
+    BigReal res = r1 + r2;
+    cout << res.leftNum << "." << res.rightNum;
     return 0;
 }
 

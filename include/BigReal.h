@@ -16,6 +16,9 @@ public:
     BigReal& operator= (BigReal& other);
     BigReal (BigReal&& other);
     BigReal& operator= (BigReal&& other);
+    BigReal operator+ (BigReal anotherReal);
+    BigReal operator- (BigReal anotherReal);
+
 };
 
 

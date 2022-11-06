@@ -20,3 +20,24 @@
 1667064734 d:\fcai\year_2\oop\assignments\assignment_2\a2_task1_groupa_20210118_20210144_20210854\include\bigreal.h
 	"BigDecimalInt.h"
 
+1667758362 source:d:\work\oop fcai\assingment 2\oop_task1_bigreal\main.cpp
+	<bits/stdc++.h>
+	"BigDecimalInt.h"
+	"BigReal.h"
+
+1667729889 d:\work\oop fcai\assingment 2\oop_task1_bigreal\include\bigdecimalint.h
+	<iostream>
+	<deque>
+	<regex>
+
+1667737889 d:\work\oop fcai\assingment 2\oop_task1_bigreal\include\bigreal.h
+	"BigDecimalInt.h"
+
+1667559537 source:d:\work\oop fcai\assingment 2\oop_task1_bigreal\src\bigdecimalint.cpp
+	"BigDecimalInt.h"
+
+1667758847 source:d:\work\oop fcai\assingment 2\oop_task1_bigreal\src\bigreal.cpp
+	<bits/stdc++.h>
+	"BigReal.h"
+	"BigDecimalInt.h"
+
