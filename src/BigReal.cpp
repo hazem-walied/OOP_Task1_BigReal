@@ -280,3 +280,60 @@ BigReal BigReal::operator- (BigReal anotherReal)
         return n2 - n1;
     }
 }
+bool BigReal::operator> (BigReal anotherReal)
+{
+    //both positive
+    if (anotherReal.leftNum.sign() == 0 && leftNum.sign() == 0){
+        if (anotherReal.leftNum > leftNum){return true;}
+        if (anotherReal.leftNum == leftNum && anotherReal.rightNum > rightNum){return true;}
+    }
+    //both negative
+    if (anotherReal.leftNum.sign() == 1 && leftNum.sign() == 1){
+        if (anotherReal.leftNum < leftNum){return true;}
+        if (anotherReal.leftNum == leftNum && anotherReal.rightNum < rightNum){return true;}
+    }
+    //first positive & second negative
+    if (anotherReal.leftNum.sign() == 0 && leftNum.sign() == 1){return true;}
+}
+bool BigReal::operator< (BigReal anotherReal)
+{
+    if (anotherReal.leftNum.sign() == 0 && leftNum.sign() == 0){
+        if (anotherReal.leftNum < leftNum){return true;}
+        if (anotherReal.leftNum == leftNum && anotherReal.rightNum < rightNum){return true;}
+    }
+    if (anotherReal.leftNum.sign() == 1 && leftNum.sign() == 1){
+        if (anotherReal.leftNum > leftNum){return true;}
+        if (anotherReal.leftNum == leftNum && anotherReal.rightNum > rightNum){return true;}
+    }
+    if (anotherReal.leftNum.sign() == 1 && leftNum.sign() == 0){return true;}
+}
+bool BigReal::operator== (BigReal anotherReal)
+{
+    if ((anotherReal.leftNum == this->leftNum) && (anotherReal.rightNum == this->rightNum )){
+            return true;
+    }
+    else
+        return false;
+}
+int BigReal::size()
+{
+    int s = leftNum.size() + rightNum.size();
+    return s;
+}
+int BigReal::sign()
+{
+    //returns 1 if positive, 0 if negative
+    return leftNum.sign();
+}
+ostream& operator << (ostream& out, BigReal num)
+{
+    out << num.leftNum << "." << num.rightNum;
+    return out;
+}
+istream& operator >> (istream& in, BigReal &num)
+{
+    string input_num;
+    in >> input_num;
+    num = input_num;
+    return in;
+}

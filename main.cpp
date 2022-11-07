@@ -7,10 +7,12 @@ using namespace std;
 
 int main()
 {
-    BigReal r1("2.3");
-    BigReal r2("-3.5");
-    BigReal res = r1 + r2;
-    cout << res.leftNum << "." << res.rightNum;
+    BigReal n1 ("11.90");
+    BigReal n2 ("233.1134322222222292");
+    BigReal n4 = n2 - n1;
+    //should print result 221.21343222
+    cout << n4 << endl;
+
     return 0;
 }
 
