@@ -41,23 +41,23 @@
 	"BigReal.h"
 	"BigDecimalInt.h"
 
-1667837637 source:c:\users\ethar\onedrive\desktop\oop_task1_bigreal\main.cpp
+1667852489 source:c:\users\ethar\onedrive\desktop\oop_task1_bigreal\main.cpp
 	<bits/stdc++.h>
 	"BigDecimalInt.h"
 	"BigReal.h"
 
-1667827997 c:\users\ethar\onedrive\desktop\oop_task1_bigreal\include\bigdecimalint.h
+1667849773 c:\users\ethar\onedrive\desktop\oop_task1_bigreal\include\bigdecimalint.h
 	<iostream>
 	<deque>
 	<regex>
 
-1667836967 c:\users\ethar\onedrive\desktop\oop_task1_bigreal\include\bigreal.h
+1667849773 c:\users\ethar\onedrive\desktop\oop_task1_bigreal\include\bigreal.h
 	"BigDecimalInt.h"
 
-1667827997 source:c:\users\ethar\onedrive\desktop\oop_task1_bigreal\src\bigdecimalint.cpp
+1667849774 source:c:\users\ethar\onedrive\desktop\oop_task1_bigreal\src\bigdecimalint.cpp
 	"BigDecimalInt.h"
 
-1667836967 source:c:\users\ethar\onedrive\desktop\oop_task1_bigreal\src\bigreal.cpp
+1667849774 source:c:\users\ethar\onedrive\desktop\oop_task1_bigreal\src\bigreal.cpp
 	<bits/stdc++.h>
 	"BigReal.h"
 	"BigDecimalInt.h"
