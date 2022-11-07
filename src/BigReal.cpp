@@ -178,13 +178,13 @@ BigReal BigReal::operator+ (BigReal anotherReal)
         }
         if(carry == "10")
         {
-           result.leftNum  = result.leftNum + carry;
-           result.rightNum = additionn("0","0");
+            result.leftNum  = result.leftNum + carry;
+            result.rightNum = additionn("0","0");
         }
         else
         {
-        result.leftNum  = result.leftNum + carry;
-        result.rightNum =  carry2;
+            result.leftNum  = result.leftNum + carry;
+            result.rightNum =  carry2;
         }
     }
     return result;
@@ -219,30 +219,65 @@ string subtractionn(string num1,string num2)
 BigReal BigReal::operator- (BigReal anotherReal)
 {
     BigReal n1, n2, result;
-    string right1,right2, left1, left2, one = "1";
+    string right1,right2, left1, left2, one = "1", holder1, holder2, holder3;
     right1 = this->rightNum.getNumber();
     right2 = anotherReal.rightNum.getNumber();
     left1 = this->leftNum.getNumber();
     left2 = anotherReal.leftNum.getNumber();
 
-
     if(this->leftNum.sign() == 1 && anotherReal.leftNum.sign() == 1)
     {
         if(this->leftNum > anotherReal.leftNum)
         {
-            if(this->rightNum < anotherReal.rightNum)
+            if(right2.length() != right1.length())
             {
-                result.leftNum = subtractionn(left1, left2);
-                result.leftNum = result.leftNum - one;
-                result.rightNum = additionn(right1, right2);
-            }
+                if(int(right1[0]) < int(right2[0]))
+                {
+                    result.leftNum = left1;
+                    result.leftNum = result.leftNum - left2;
+                    result.leftNum = result.leftNum - one;
+                    right1 = "1" + right1;
+                    while (right1.length() < right2.length())
+                    {
+                        right1 = right1 + '0';
+                    }
+                    while (right2.length() < right1.length())
+                    {
+                        right2 = right2 + '0';
+                    }
+                    result.rightNum = subtractionn(right1, right2);
 
+                }
+                else
+                {
+                    result.leftNum = left1;
+                    result.leftNum = result.leftNum - left2;
+                      while (right1.length() < right2.length())
+                    {
+                        right1 = right1 + '0';
+                    }
+                    while (right2.length() < right1.length())
+                    {
+                        right2 = right2 + '0';
+                    }
+                    result.rightNum = subtractionn(right1, right2);
+                }
+            }
             else
             {
-                result.leftNum = subtractionn(left1, left2);
+                result.leftNum = left1;
+                result.leftNum = result.leftNum - left2;
+                while (right1.length() < right2.length())
+                {
+                    right1 = right1 + '0';
+                }
+                while (right2.length() < right1.length())
+                {
+                    right2 = right2 + '0';
+                }
                 result.rightNum = subtractionn(right1, right2);
             }
-             return result;
+            return result;
         }
         else
         {
@@ -254,6 +289,7 @@ BigReal BigReal::operator- (BigReal anotherReal)
             return n2 - n1;
         }
     }
+
     else if(this->leftNum.sign() == 0 && anotherReal.leftNum.sign() == 1)
     {
         n1.leftNum = this->leftNum.getNumber();
@@ -284,34 +320,69 @@ BigReal BigReal::operator- (BigReal anotherReal)
 bool BigReal::operator> (BigReal anotherReal)
 {
     //both positive
-    if (anotherReal.leftNum.sign() == 0 && leftNum.sign() == 0){
-        if (anotherReal.leftNum > leftNum){return true;}
-        if (anotherReal.leftNum == leftNum && anotherReal.rightNum > rightNum){return true;}
+    if (anotherReal.leftNum.sign() == 0 && leftNum.sign() == 0)
+    {
+        if (anotherReal.leftNum > leftNum)
+        {
+            return true;
+        }
+        if (anotherReal.leftNum == leftNum && anotherReal.rightNum > rightNum)
+        {
+            return true;
+        }
     }
     //both negative
-    if (anotherReal.leftNum.sign() == 1 && leftNum.sign() == 1){
-        if (anotherReal.leftNum < leftNum){return true;}
-        if (anotherReal.leftNum == leftNum && anotherReal.rightNum < rightNum){return true;}
+    if (anotherReal.leftNum.sign() == 1 && leftNum.sign() == 1)
+    {
+        if (anotherReal.leftNum < leftNum)
+        {
+            return true;
+        }
+        if (anotherReal.leftNum == leftNum && anotherReal.rightNum < rightNum)
+        {
+            return true;
+        }
     }
     //first positive & second negative
-    if (anotherReal.leftNum.sign() == 0 && leftNum.sign() == 1){return true;}
+    if (anotherReal.leftNum.sign() == 0 && leftNum.sign() == 1)
+    {
+        return true;
+    }
 }
 bool BigReal::operator< (BigReal anotherReal)
 {
-    if (anotherReal.leftNum.sign() == 0 && leftNum.sign() == 0){
-        if (anotherReal.leftNum < leftNum){return true;}
-        if (anotherReal.leftNum == leftNum && anotherReal.rightNum < rightNum){return true;}
+    if (anotherReal.leftNum.sign() == 0 && leftNum.sign() == 0)
+    {
+        if (anotherReal.leftNum < leftNum)
+        {
+            return true;
+        }
+        if (anotherReal.leftNum == leftNum && anotherReal.rightNum < rightNum)
+        {
+            return true;
+        }
     }
-    if (anotherReal.leftNum.sign() == 1 && leftNum.sign() == 1){
-        if (anotherReal.leftNum > leftNum){return true;}
-        if (anotherReal.leftNum == leftNum && anotherReal.rightNum > rightNum){return true;}
+    if (anotherReal.leftNum.sign() == 1 && leftNum.sign() == 1)
+    {
+        if (anotherReal.leftNum > leftNum)
+        {
+            return true;
+        }
+        if (anotherReal.leftNum == leftNum && anotherReal.rightNum > rightNum)
+        {
+            return true;
+        }
     }
-    if (anotherReal.leftNum.sign() == 1 && leftNum.sign() == 0){return true;}
+    if (anotherReal.leftNum.sign() == 1 && leftNum.sign() == 0)
+    {
+        return true;
+    }
 }
 bool BigReal::operator== (BigReal anotherReal)
 {
-    if ((anotherReal.leftNum == this->leftNum) && (anotherReal.rightNum == this->rightNum )){
-            return true;
+    if ((anotherReal.leftNum == this->leftNum) && (anotherReal.rightNum == this->rightNum ))
+    {
+        return true;
     }
     else
         return false;
