@@ -176,8 +176,16 @@ BigReal BigReal::operator+ (BigReal anotherReal)
         {
             carry2 = carry2 + right3[rightNum.size() -1 - i];
         }
+        if(carry == "10")
+        {
+           result.leftNum  = result.leftNum + carry;
+           result.rightNum = additionn("0","0");
+        }
+        else
+        {
         result.leftNum  = result.leftNum + carry;
         result.rightNum =  carry2;
+        }
     }
     return result;
 }
@@ -211,47 +219,40 @@ string subtractionn(string num1,string num2)
 BigReal BigReal::operator- (BigReal anotherReal)
 {
     BigReal n1, n2, result;
-    string right1,right2, left1, left2;
+    string right1,right2, left1, left2, one = "1";
     right1 = this->rightNum.getNumber();
     right2 = anotherReal.rightNum.getNumber();
     left1 = this->leftNum.getNumber();
     left2 = anotherReal.leftNum.getNumber();
+
+
     if(this->leftNum.sign() == 1 && anotherReal.leftNum.sign() == 1)
     {
-        if(this->leftNum < anotherReal.leftNum)
+        if(this->leftNum > anotherReal.leftNum)
         {
-            if(this->rightNum > anotherReal.rightNum)
+            if(this->rightNum < anotherReal.rightNum)
             {
-                right2 = "1" + right2;
-                left2 = subtractionn(left2, "1");
-                result.leftNum = subtractionn(left2, left1);
+                result.leftNum = subtractionn(left1, left2);
+                result.leftNum = result.leftNum - one;
                 result.rightNum = additionn(right1, right2);
-                cout << '-';
             }
 
             else
             {
-                result.leftNum = subtractionn(left2, left1);
-                result.rightNum = subtractionn(right2, right1);
-                cout << '-';
+                result.leftNum = subtractionn(left1, left2);
+                result.rightNum = subtractionn(right1, right2);
             }
+             return result;
         }
         else
         {
-            if(this->rightNum < anotherReal.rightNum)
-            {
-                right1 = "1" + right1;
-                left1 = subtractionn(left1, "1");
-                result.leftNum = subtractionn(left1, left2);
-                result.rightNum = subtractionn(right1, right2);
-            }
-            else
-            {
-                result.leftNum = subtractionn(left1, left2);
-                result.rightNum = subtractionn(right1, right2);
-            }
+            n1.leftNum = this->leftNum.getNumber();
+            n1.rightNum = this->rightNum.getNumber();
+            n2.leftNum = anotherReal.leftNum.getNumber();
+            n2.rightNum = anotherReal.rightNum.getNumber();
+            cout << '-';
+            return n2 - n1;
         }
-        return result;
     }
     else if(this->leftNum.sign() == 0 && anotherReal.leftNum.sign() == 1)
     {
