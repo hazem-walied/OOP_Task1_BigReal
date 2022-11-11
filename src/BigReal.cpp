@@ -118,7 +118,7 @@ BigReal BigReal::operator+ (BigReal anotherReal)
 {
     int test = 0;
     BigReal result,n1, n2;
-    string right1,right2, right3, carry, carry2;
+    string right1,right2, right3, carry, carry2, one = "1";
     if(this->rightNum.size() > anotherReal.rightNum.size())
         test = this->rightNum.size();
     else if(this->rightNum.size() < anotherReal.rightNum.size())
@@ -178,7 +178,7 @@ BigReal BigReal::operator+ (BigReal anotherReal)
         }
         if(carry == "10")
         {
-            result.leftNum  = result.leftNum + carry;
+            result.leftNum  = result.leftNum + one;
             result.rightNum = additionn("0","0");
         }
         else
@@ -219,12 +219,11 @@ string subtractionn(string num1,string num2)
 BigReal BigReal::operator- (BigReal anotherReal)
 {
     BigReal n1, n2, result;
-    string right1,right2, left1, left2, one = "1", holder1, holder2, holder3;
+    string right1,right2, left1, left2, one = "1";
     right1 = this->rightNum.getNumber();
     right2 = anotherReal.rightNum.getNumber();
     left1 = this->leftNum.getNumber();
     left2 = anotherReal.leftNum.getNumber();
-
     if(this->leftNum.sign() == 1 && anotherReal.leftNum.sign() == 1)
     {
         if(this->leftNum > anotherReal.leftNum)
@@ -267,14 +266,6 @@ BigReal BigReal::operator- (BigReal anotherReal)
             {
                 result.leftNum = left1;
                 result.leftNum = result.leftNum - left2;
-                while (right1.length() < right2.length())
-                {
-                    right1 = right1 + '0';
-                }
-                while (right2.length() < right1.length())
-                {
-                    right2 = right2 + '0';
-                }
                 result.rightNum = subtractionn(right1, right2);
             }
             return result;
